@@ -1,0 +1,121 @@
+<template>
+  <div class="indexcontent">
+    <header>
+      <h1>数据可视化-ECharts</h1>
+      <div class="showTime"></div>
+    </header>
+    <!-- 页面主图部分 -->
+    <div class="mainbox">
+      <div class="column">
+        <div class="panel bar">
+          <h2>柱形图-就业行业</h2>
+          <div class="chart" ref="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel line">
+          <h2>折线图-人员变化</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel pie">
+          <h2>饼形图-年龄分布</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="column">
+        <!-- no模块制作 -->
+        <div class="no">
+          <div class="no-hd">
+            <ul>
+              <li>13245</li>
+              <li>54655</li>
+            </ul>
+          </div>
+          <div class="no-bd">
+            <ul>
+              <li>前端需求人数</li>
+              <li>市场供应人数</li>
+            </ul>
+          </div>
+        </div>
+        <!-- 地图-->
+        <div class="map">
+          <div class="map1"></div>
+          <div class="map2"></div>
+          <div class="map3"></div>
+          <div class="chart"></div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="panel bar1">
+          <h2>柱形图-技能掌握</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel line1">
+          <h2>折线图-播放量</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+
+        <div class="panel pie1">
+          <h2>饼形图-地区分布</h2>
+          <div class="chart"></div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
+<script>
+  // import * as echarts from 'echarts'
+// import flexible from './js/flexible'
+
+  // import {zhuzhaung} from  './js/index'
+// import china from './js/china'
+// import mymap from './js/myMap'
+// import $ from './js/jquery'
+
+
+export default {
+  data() {
+    return {}
+  },
+  created() {
+    this.getTime();
+    this.one();
+  },
+  methods: {
+    one(){
+        // zhuzhaung();
+    },
+    getTime() {
+      var t = null
+      t = setTimeout(time, 1000) //开始运行
+      function time() {
+        clearTimeout(t) //清楚定时器
+       var dt = new Date()
+        var y = dt.getFullYear()
+        var mt = dt.getMonth() + 1
+        var day = dt.getDate()
+        var h = dt.getHours() //获取时
+        var m = dt.getMinutes() //分
+        var s = dt.getSeconds() //秒
+        document.querySelector('.showTime').innerHTML = '当前时间：' + y + '年' + mt + '月' + day + '-' + h + '时' + m + '分' + s + '秒'
+        t = setTimeout(time, 1000) //设置定时器，循环运行
+      }
+    },
+  },
+}
+</script>
+
+<style  scoped>
+@import 'css/index.css';
+</style>
